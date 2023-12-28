@@ -40,6 +40,7 @@ class _HeaderWidget extends StatelessWidget {
     return const Padding(
       padding: EdgeInsets.symmetric(horizontal: 16),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 25),
           _FormWidget(),
@@ -48,10 +49,20 @@ class _HeaderWidget extends StatelessWidget {
             'tgegrkjhegksvlshkjdhsfvkhsvshvshdvjhsjvhsdlvhsjldvhsjvhskvgsvhsdkvksvhsdvbksjdvbskvsjkldvbskdvskdhsfhsljbdkghsdvbskjvbdhsdh',
             style: textStyle,
           ),
+          SizedBox(height: 5),
+          ElevatedButton(
+            onPressed: null,
+            child: Text('Register'),
+          ),
           SizedBox(height: 25),
           Text(
             'detxtkjfheaghegheihgiehgieurhgeghegher',
             style: textStyle,
+          ),
+          SizedBox(height: 5),
+          ElevatedButton(
+            onPressed: null,
+            child: Text('Verify email'),
           ),
         ],
       ),
@@ -75,7 +86,8 @@ class __FormWidgetState extends State<_FormWidget> {
     );
     const textFieldDecorator = InputDecoration(
       border: OutlineInputBorder(),
-      contentPadding: EdgeInsets.zero,
+      contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      isCollapsed: true,
     );
     return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -84,16 +96,57 @@ class __FormWidgetState extends State<_FormWidget> {
           'Username',
           style: textStyle,
         ),
+        SizedBox(height: 5),
         TextField(
           decoration: textFieldDecorator,
         ),
+        SizedBox(height: 18),
         Text(
           'Password',
           style: textStyle,
         ),
+        SizedBox(height: 5),
         TextField(
           decoration: textFieldDecorator,
+          obscureText: true,
         ),
+        SizedBox(
+          height: 25,
+        ),
+        Row(
+          children: [
+            TextButton(
+              onPressed: null,
+              style: ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(
+                  Color.fromARGB(255, 106, 107, 199),
+                ),
+                foregroundColor: MaterialStatePropertyAll(
+                  Color.fromARGB(255, 252, 252, 252),
+                ),
+                padding: MaterialStatePropertyAll(
+                  EdgeInsets.symmetric(
+                    horizontal: 15,
+                    vertical: 8,
+                  ),
+                ),
+              ),
+              child: Text('Login'),
+            ),
+            SizedBox(
+              width: 30,
+            ),
+            TextButton(
+              onPressed: null,
+              style: ButtonStyle(
+                foregroundColor: MaterialStatePropertyAll(
+                  Color.fromARGB(255, 106, 107, 199),
+                ),
+              ),
+              child: Text('Reset password'),
+            ),
+          ],
+        )
       ],
     );
   }
